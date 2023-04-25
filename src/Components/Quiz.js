@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { quizQuestions } from "../QuizData/quizdata";
 import { useNavigate } from "react-router-dom";
-import Timer from "./Timer";
+// import Timer from "./Timer";
 
-const Quiz = ({ startTimer, setName }) => {
+const Quiz = ({  setName }) => {
   const [qNumber, setQNumber] = useState(0);
   const [score, setScore] = useState(0);
   const [displayScore, setDisplayScore] = useState(false);
   const [clickedAnswer, setclickedAnswer] = useState(0);
-  const [seconds, setSeconds] = useState(20);
+  const [select,setSelect]=useState(false)
   const correc=(istrue)=>{
     if(istrue)
       return true;
@@ -17,11 +17,12 @@ const Quiz = ({ startTimer, setName }) => {
   const navigate = useNavigate();
 
   const selectedAnswer = (selected, id) => {
-    
     console.log(id);
     setclickedAnswer(id);
+    setSelect(selected)
     setTimeout(() => {
       const nextQ = qNumber + 1;
+      console.log(clickedAnswer);
       setclickedAnswer(0);
       if (nextQ < quizQuestions.length) {
         setQNumber(nextQ);
@@ -39,7 +40,7 @@ const Quiz = ({ startTimer, setName }) => {
         }
         setScore((score) => score + 1);
       }
-      setSeconds(20);
+
     }, 600);
   };
 
@@ -76,23 +77,15 @@ const Quiz = ({ startTimer, setName }) => {
               <h2>
                 Question {qNumber + 1} of {quizQuestions.length}
               </h2>
-              {startTimer && (
-                <Timer
-                  setDisplayScore={setDisplayScore}
-                  setQNumber={setQNumber}
-                  seconds={seconds}
-                  setSeconds={setSeconds}
-                  qNumber={qNumber}
-                  quizQuestions={quizQuestions}
-                />
-              )}
+            
             </div>
 
             <h5>{quizQuestions[qNumber].question}</h5>
             <ul>
               {quizQuestions[qNumber].answers.map((answer) => (
+      
                 <li
-                  className={clickedAnswer === answer.id ? `answerCss` : 'wrong'}
+                  className={select === answer.isCorrect ? `answerCss` : null}
                   key={answer.id}
                   onClick={() => selectedAnswer(answer.isCorrect, answer.id)}
                 >

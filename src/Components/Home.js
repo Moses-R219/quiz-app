@@ -5,7 +5,7 @@ const Home = ({ setName, name }) => {
   const [error, setError] = useState(false);
   const navigate = useNavigate();
 
-  //onclick of start button ====> Go to instructions page
+  //onclick of start button ====> Go to Quiz page
   const start = () => {
     if (name === "") {
       setError(true);

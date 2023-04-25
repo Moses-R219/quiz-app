@@ -3,20 +3,22 @@ body {
   margin: 0;
   padding: 0;
   background-image: linear-gradient(
-      to right,
-      rgba(0, 0, 0, 0.722),
-      rgba(11, 17, 20, 0.7)
+      to left,
+      rgba(73, 57, 176, 0.722),
+      rgba(0, 0, 0, 0.7)
     ),
-    url(../public//bg.png);
+    url(../public//bg.jpg);
   background-size: cover;
   background-position: center;
+  height: 100vh;
+  width: 100vw;
 }
 
 button {
   background: transparent;
-  box-shadow: rgba(255, 27, 27, 0.41) 0px 12px 33px;
+  box-shadow: rgba(255, 255, 255, 0.41) 0px 12px 33px;
   transition: all 3s ease-in-out;
-  color: rgb(181, 35, 35);
+  color: rgb(230, 219, 219);
   outline: none;
   border: none;
   padding: 1rem 2.5rem;
@@ -35,7 +37,7 @@ button:hover {
 h1,
 p,
 h4 {
-  background: -webkit-linear-gradient(#efffef, #8a8a8a);
+  background: -webkit-linear-gradient(#070807, #ff0404);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 800;
@@ -43,6 +45,7 @@ h4 {
 }
 h1 {
   font-size: 3.8rem;
+  color: rgb(30, 210, 105);
 }
 p {
   font-size: 1.5rem;
@@ -77,12 +80,12 @@ ul {
   padding: 0;
 }
 li {
-  font-size: 1.2rem;
-  border-radius: 20px;
+  font-size: 1rem;
+  border-radius: 30px;
   margin: 2rem;
   color: white;
   box-shadow: rgb(20 1 1 / 15%) 0px 3px 15px;
-  padding: 16px 25px;
+  padding: 11px 20px;
 }
 li:hover {
   cursor: pointer;
@@ -104,7 +107,7 @@ ul li::before {
   width: 60%;
   height: auto;
   border-radius: 20px;
-  padding: 38px 10px;
+  padding: 30px 10px;
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
 /* common css end */
@@ -115,16 +118,6 @@ ul li::before {
 }
 
 /* home css end */
-
-/* instructions css start */
-.Instructions_Div li{
-  box-shadow: none;
-  margin: auto;
-}
-.Instructions_Div span{
-  text-transform: capitalize;
-}
-/* instructions css end */
 
 /* quiz css start */
 .Quiz_Div {
@@ -163,8 +156,6 @@ ul li::before {
 
 /* quiz css end */
 
-
-/* ################### mobile devices ######################*/
 @media screen and (max-width:767px) {
   .Main_Div {
     width: 85%;

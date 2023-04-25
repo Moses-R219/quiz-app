@@ -81,18 +81,19 @@ const Quiz = ({  setName }) => {
             </div>
 
             <h5>{quizQuestions[qNumber].question}</h5>
-            <ul>
+            <ol>
               {quizQuestions[qNumber].answers.map((answer) => (
-      
+                
                 <li
                   className={select === answer.isCorrect ? `answerCss` : null}
                   key={answer.id}
                   onClick={() => selectedAnswer(answer.isCorrect, answer.id)}
                 >
-                  {answer.ans}
+                  {/* setSelect(false); */}
+                   {answer.ans}
                 </li>
               ))}
-            </ul>
+            </ol>
           </>
         )}
       </div>

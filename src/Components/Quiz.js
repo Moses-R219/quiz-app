@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import { quizQuestions } from "../QuizData/quizdata";
 import { useNavigate } from "react-router-dom";
-// import Timer from "./Timer";
 
 const Quiz = ({  setName }) => {
   const [qNumber, setQNumber] = useState(0);
   const [score, setScore] = useState(0);
   const [displayScore, setDisplayScore] = useState(false);
   const [clickedAnswer, setclickedAnswer] = useState(0);
-  const [select,setSelect]=useState(false)
   const correc=(istrue)=>{
     if(istrue)
       return true;
@@ -17,9 +15,9 @@ const Quiz = ({  setName }) => {
   const navigate = useNavigate();
 
   const selectedAnswer = (selected, id) => {
-    console.log(id);
+
     setclickedAnswer(id);
-    setSelect(selected)
+
     setTimeout(() => {
       const nextQ = qNumber + 1;
       console.log(clickedAnswer);
@@ -85,11 +83,11 @@ const Quiz = ({  setName }) => {
               {quizQuestions[qNumber].answers.map((answer) => (
                 
                 <li
-                  className={select === answer.isCorrect ? `answerCss` : null}
+                
                   key={answer.id}
                   onClick={() => selectedAnswer(answer.isCorrect, answer.id)}
                 >
-                  {/* setSelect(false); */}
+               
                    {answer.ans}
                 </li>
               ))}
